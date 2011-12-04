@@ -11,7 +11,7 @@ from other places on the web; others are mine. The metadata for a cookbook
 usually spells out where it came from.
 
 If a cookbook is mine, it's released under a BSD license and copyright
-&copy; Brian M. Clapper See the `LICENSE.md` file in this repository.
+&copy; Brian M. Clapper. See the `LICENSE.md` file in this repository.
 Cookbooks I've cribbed from elsewhere have their own licenses, and their
 authors retain copyright.
 
