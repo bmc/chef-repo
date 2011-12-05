@@ -1,0 +1,26 @@
+= DESCRIPTION:
+
+This cookbook installs +rvm+ in the specified user's home directory and,
+optionally, builds a Ruby with it.
+
+= REQUIREMENTS:
+
+* a working +git+ framework
+* the equivalent of Ubuntu or Debian's +build-essential+ package
+
+= RECIPES:
+
+There are two recipes.
+
+The default +rvm+ recipe installs +rvm+ in the specified user's home
+directory. It requires the +node[:rvm][:user]+ attribute to be set.
+(See below.)
+
+The +rvm::ruby+ recipe assumes that +rvm+ has been installed in the local
+user's directory, and uses it to install a Ruby. It requires the
++node[:rvm][:user]+ and +node[:rvm][:ruby]+ attributes.
+
+= ATTRIBUTES:
+
+* +node[:rvm][:user]+ the user under whose home RVM is to be installed
+* +node[:rvm][:ruby]+ for the +rvm::ruby+ recipe; specifies the Ruby version.

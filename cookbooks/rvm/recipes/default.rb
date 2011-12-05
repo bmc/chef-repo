@@ -1,6 +1,8 @@
 
-bash "installing system-wide RVM" do
-  user "root"
-  code "bash < <( curl -L https://rvm.beginrescueend.com/install/rvm)"
-  not_if "test -e /usr/local/rvm/bin/rvm"
+bash "installing user-local RVM" do
+  user "#{node[:rvm][:user]}"
+  code <<-EOF
+  export HOME="/home/#{node[:rvm][:user]}"
+  bash < <( curl -L https://rvm.beginrescueend.com/install/rvm)
+  EOF
 end
