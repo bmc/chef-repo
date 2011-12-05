@@ -18,7 +18,8 @@ directory. It requires the +node[:rvm][:user]+ attribute to be set.
 
 The +rvm::ruby+ recipe assumes that +rvm+ has been installed in the local
 user's directory, and uses it to install a Ruby. It requires the
-+node[:rvm][:user]+ and +node[:rvm][:ruby]+ attributes.
++node[:rvm][:user]+ and +node[:rvm][:ruby]+ attributes. It installs the
+specified Ruby version, with +openssl+ support.
 
 = ATTRIBUTES:
 
