@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Intended to be installed in the rvm bin directory.
+
+case "$#" in
+    1)
+        ;;
+    *)
+        echo "Usage: $0 ruby_version" >&2
+        exit 1
+        ;;
+esac
+
+dir=`dirname $0`
+res=1
+if [ -x $dir/rvm ]
+then
+    $dir/rvm list strings | grep "^ruby-$1" >/dev/null
+    res=$?
+fi
+
+exit $res
