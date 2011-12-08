@@ -6,10 +6,25 @@ include_recipe "build-essential"
 
 package "curl"
 package "git-core"
-package "libreadline-dev"
+package "libreadline6"
+package "libreadline6-dev"
 package "libxml2-dev"
+package "zlib1g"
+package "zlib1g-dev"
 package "libssl-dev"
-package "libxslt1-dev"
+package "openssl" 
+package "libyaml-dev"
+package "libsqlite3-0"
+package "libsqlite3-dev"
+package "sqlite3"
+package "libxslt-dev"
+package "autoconf"
+package "libc6-dev"
+package "ncurses-dev"
+package "automake"
+package "libtool"
+package "bison"
+package "subversion"
 
 # Script to check if a Ruby is already installed.
 cookbook_file "/home/#{node[:rvm][:user]}/.rvm/bin/rvm-ruby-installed" do
@@ -24,15 +39,11 @@ bash "installing Ruby via RVM" do
   code <<-EOF
   export HOME=$(echo ~#{node[:rvm][:user]})
   export PATH=$PATH:$HOME/.rvm/bin
-  if /home/#{node[:rvm][:user]}/.rvm/bin/rvm-ruby-installed #{node[:rvm][:ruby]}
+  if $HOME/.rvm/bin/rvm-ruby-installed #{node[:rvm][:ruby]}
   then
       :
   else
-      rvm pkg install zlib
-      rvm pkg install openssl
-      rvm pkg install iconv
-      rvm pkg install readline
-      rvm install #{node[:rvm][:ruby]} --with-zlib-dir=$HOME/.rvm/usr --with-openssl-dir=$HOME/.rvm/usr --with-iconv-dir=$HOME/.rvm/usr --with-readline-dir=$HOME/.rvm/usr
+      rvm install #{node[:rvm][:ruby]}a
   fi
   EOF
 end
