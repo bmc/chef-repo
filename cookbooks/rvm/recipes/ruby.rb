@@ -43,7 +43,7 @@ bash "installing Ruby via RVM" do
   then
       :
   else
-      rvm install #{node[:rvm][:ruby]}a
+      rvm install #{node[:rvm][:ruby]}
   fi
   EOF
 end
