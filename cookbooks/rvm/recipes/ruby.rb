@@ -44,6 +44,11 @@ bash "installing Ruby via RVM" do
       :
   else
       rvm install #{node[:rvm][:ruby]}
+      if [ "x#{node[:rvm][:gemset]}" != "x" ]
+      then
+        rvm #{node[:rvm][:ruby]}
+        rvm gemset create #{node[:rvm][:gemset]}
+      fi
   fi
   EOF
 end
