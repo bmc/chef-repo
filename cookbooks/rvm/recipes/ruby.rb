@@ -26,6 +26,13 @@ package "libtool"
 package "bison"
 package "subversion"
 
+bash "Creating RVM bin directory" do
+  user node[:rvm][:user]
+  code <<-EOF
+  mkdir -p /home/#{node[:rvm][:user]}/.rvm/bin
+  EOF
+end
+
 # Script to check if a Ruby is already installed.
 cookbook_file "/home/#{node[:rvm][:user]}/.rvm/bin/rvm-ruby-installed" do
   source "rvm-ruby-installed"
