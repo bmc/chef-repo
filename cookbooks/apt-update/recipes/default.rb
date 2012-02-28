@@ -18,9 +18,8 @@
 #
 
 bash "updating APT" do
-  user "#{node[:rvm][:user]}"
+  user "root"
   code <<-EOF
-  sudo apt-get update
-  sudo apt-get update
+  apt-get update
   EOF
 end
